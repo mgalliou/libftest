@@ -6,7 +6,7 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 17:22:35 by mgalliou          #+#    #+#             */
-/*   Updated: 2019/05/10 17:25:40 by mgalliou         ###   ########.fr       */
+/*   Updated: 2019/05/10 18:25:59 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,9 @@ void	record_ret(int status)
 	t_test_mng *test_mng;
 	
 	test_mng = get_test_mng();
-	if (WIFSIGNALED(status))
+	if (WIFEXITED(status))
 	{
-		++test_mng->failed;
-		printf("signal\n");
-	}
-	else if (WIFEXITED(status))
-	{
-		if (EXIT_FAILURE == status)
+		if (EXIT_FAILURE == WEXITSTATUS(status))
 		{
 			++test_mng->failed;
 		}
@@ -36,6 +31,11 @@ void	record_ret(int status)
 		{
 			++test_mng->passed;
 		}
+	}
+	else if (WIFSIGNALED(status))
+	{
+		++test_mng->failed;
+		printf("signal %d\n", WTERMSIG(status));
 	}
 	++test_mng->asserted;
 }
