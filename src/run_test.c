@@ -6,7 +6,7 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 17:22:35 by mgalliou          #+#    #+#             */
-/*   Updated: 2019/05/09 21:56:29 by mgalliou         ###   ########.fr       */
+/*   Updated: 2019/05/10 15:36:14 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,12 @@ void	record_ret(int status)
 	t_test_mng *test_mng;
 	
 	test_mng = get_test_mng();
-	if (WIFEXITED(status))
+	if (WIFSIGNALED(status))
+	{
+		++test_mng->failed;
+		printf("signal\n");
+	}
+	else if (WIFEXITED(status))
 	{
 		if (EXIT_FAILURE == status)
 		{
