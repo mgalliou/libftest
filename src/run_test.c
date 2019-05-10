@@ -6,7 +6,7 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 17:22:35 by mgalliou          #+#    #+#             */
-/*   Updated: 2019/05/10 15:36:14 by mgalliou         ###   ########.fr       */
+/*   Updated: 2019/05/10 17:25:40 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void    run_test(void test(), const char *test_name)
 	test_mng = get_test_mng();
 	test_mng->current_test = test_name;
 	pid = fork();
-	ret = -1;
+	status = -1;
 	if (0 == pid)
 	{
 		dprintf(2, "running test: %s\n", test_name);

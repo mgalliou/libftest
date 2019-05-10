@@ -6,7 +6,7 @@
 #    By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/28 13:13:07 by mgalliou          #+#    #+#              #
-#    Updated: 2019/05/09 22:00:02 by mgalliou         ###   ########.fr        #
+#    Updated: 2019/05/10 17:58:29 by mgalliou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,6 +61,8 @@ SRC_NAME	=	get_test_mng.c\
 				assert_not_null.c\
 				assert_str_equal.c\
 				assert_int_equal.c\
+				assert_ptr_equal.c\
+				assert_true.c\
 				print_test_results.c
 
 SRC			=	$(addprefix $(SRC_DIR)/,$(SRC_NAME))

@@ -6,7 +6,7 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 20:56:01 by mgalliou          #+#    #+#             */
-/*   Updated: 2019/05/09 17:49:56 by mgalliou         ###   ########.fr       */
+/*   Updated: 2019/05/10 17:56:31 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void			run_test(void test(const char *), const char *test_name);
 int				assert_not_null(void *ptr);
 int             assert_str_equal(char *expected, char *actually);
 int				assert_int_equal(int expected, int actually);
+int				assert_ptr_equal(void *expected, void *actually);
+int				assert_true(int actually);
 void            print_test_results(void);
 
 #endif
