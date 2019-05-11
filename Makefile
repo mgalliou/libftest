@@ -6,7 +6,7 @@
 #    By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/28 13:13:07 by mgalliou          #+#    #+#              #
-#    Updated: 2019/05/10 17:58:29 by mgalliou         ###   ########.fr        #
+#    Updated: 2019/05/11 11:54:41 by mgalliou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,25 +31,28 @@ CRESET		=	$(ESC)[m
 #	NAME / UTILITY / FLAGS / LIBS
 # **************************************************************************** #
 
-NAME		=	libftest.a
-INC_DIR		=	include
-SRC_DIR		=	src
-OBJ_DIR		=	obj
-RM			= 	rm -rf
-CC			=	gcc
-CFLAGS		=	-Wall -Wextra -Werror
+NAME			=	libftest.a
+INC_DIR			=	include libft/include
+SRC_DIR			=	src
+OBJ_DIR			=	obj
+LIB_DIR			=	libft
+RM				= 	rm -rf
+CC				=	gcc
+CFLAGS			=	-Wall -Wextra -Werror -fPIC
 CFLAGS_DEBUG	=	-g -fsanitize=address
-CPPFLAGS	=	$(foreach dir,$(INC_DIR),-I$(dir))
-AR			=	ar rc
-RL			=	ranlib
-RM			= 	rm -rf
+CPPFLAGS		=	$(foreach dir,$(INC_DIR),-I$(dir))
+LDFLAGS			=	-L$(LIB_DIR)
+LDLIBS			=	-lft
+AR				=	ar rc
+RL				=	ranlib
+RM				= 	rm -rf
 
 # **************************************************************************** #
 #	INCLUDES                                                                   #
 # **************************************************************************** #
 
-INC_NAME		=	libftest.h
-INC				=	$(addprefix $(INC_DIR)/, $(INC_NAME))
+INC_NAME		=	libft.h libftest.h
+INC				=	$(addprefix $(INC_DIR)/,$(INC_NAME))
 
 # **************************************************************************** #
 #	SOURCES
@@ -86,12 +89,12 @@ debug: CFLAGS := $(CFLAGS) $(CFLAGS_DEBUG)
 debug: all
 
 $(NAME): $(OBJ)
-	$(AR) $@ $^
+	$(AR) $@ $^ 
 	$(RL) $@
 
-$(OBJ_DIR)/%.o : $(SRC_DIR)/%.c $(INC)
+$(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)
-	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
+	$(CC) $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) -c $< -o $@ $(LDLIBS)
 
 clean:
 	$(RM) $(OBJ_DIR)

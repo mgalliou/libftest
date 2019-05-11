@@ -6,11 +6,12 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 17:22:35 by mgalliou          #+#    #+#             */
-/*   Updated: 2019/05/10 18:25:59 by mgalliou         ###   ########.fr       */
+/*   Updated: 2019/05/11 11:49:15 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftest.h"
+#include "libft.h"
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
@@ -40,6 +41,14 @@ void	record_ret(int status)
 	++test_mng->asserted;
 }
 
+static void	log_running_test(const char *test_name)
+{
+	if (1)
+	{
+		ft_putstr("running test: ");
+		ft_putendl(test_name);
+	}
+}
 
 void    run_test(void test(), const char *test_name)
 {
@@ -49,11 +58,11 @@ void    run_test(void test(), const char *test_name)
 
 	test_mng = get_test_mng();
 	test_mng->current_test = test_name;
+	log_running_test(test_name);
 	pid = fork();
 	status = -1;
 	if (0 == pid)
 	{
-		dprintf(2, "running test: %s\n", test_name);
 		test();
 		exit(0);
 	}
