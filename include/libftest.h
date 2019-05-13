@@ -6,7 +6,7 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 20:56:01 by mgalliou          #+#    #+#             */
-/*   Updated: 2019/05/10 17:56:31 by mgalliou         ###   ########.fr       */
+/*   Updated: 2019/05/13 12:43:16 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct	s_test_mng
 t_test_mng		*get_test_mng(void);
 void            run_test_suite(void	test_suite(), const char *suite_name);
 void			run_test(void test(const char *), const char *test_name);
+int				assert_null(void *ptr);
 int				assert_not_null(void *ptr);
 int             assert_str_equal(char *expected, char *actually);
 int				assert_int_equal(int expected, int actually);
