@@ -6,7 +6,7 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 17:22:35 by mgalliou          #+#    #+#             */
-/*   Updated: 2019/05/11 11:49:15 by mgalliou         ###   ########.fr       */
+/*   Updated: 2019/05/13 10:37:32 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,9 @@ void	record_ret(int status)
 	else if (WIFSIGNALED(status))
 	{
 		++test_mng->failed;
-		printf("signal %d\n", WTERMSIG(status));
+		ft_putstr("signal ");
+		ft_putnbr(WTERMSIG(status));
+		ft_putchar('\n');
 	}
 	++test_mng->asserted;
 }
