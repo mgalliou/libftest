@@ -6,7 +6,7 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 20:56:01 by mgalliou          #+#    #+#             */
-/*   Updated: 2019/05/13 12:43:16 by mgalliou         ###   ########.fr       */
+/*   Updated: 2019/05/15 11:50:31 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@ typedef struct	s_test_mng
 	int			asserted;
 	int			failed; 
 	int			passed;
+	const char	*current_suite;
 	const char 	*current_test;
 }				t_test_mng;
 
-# define TEST_SUITE(suite_name)          void suite_name(const char *suite_name)
+# define TEST_SUITE(suite_name)          void suite_name()
 # define RUN_TEST_SUITE(suite_name)      run_test_suite(suite_name, #suite_name)
 
 # define TEST(test_name)                 void test_name()
