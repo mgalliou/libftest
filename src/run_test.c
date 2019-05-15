@@ -6,7 +6,7 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 17:22:35 by mgalliou          #+#    #+#             */
-/*   Updated: 2019/05/13 10:37:32 by mgalliou         ###   ########.fr       */
+/*   Updated: 2019/05/15 14:10:42 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,9 @@ void    run_test(void test(), const char *test_name)
 	status = -1;
 	if (0 == pid)
 	{
+		test_mng->before_test();
 		test();
+		test_mng->after_test();
 		exit(0);
 	}
 	else
