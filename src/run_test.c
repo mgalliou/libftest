@@ -6,7 +6,7 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 17:22:35 by mgalliou          #+#    #+#             */
-/*   Updated: 2019/05/15 14:10:42 by mgalliou         ###   ########.fr       */
+/*   Updated: 2019/05/15 15:42:25 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	record_ret(int status)
 	test_mng = get_test_mng();
 	if (WIFEXITED(status))
 	{
-		if (EXIT_FAILURE == WEXITSTATUS(status))
+		if (status)
 		{
 			++test_mng->failed;
 		}
@@ -52,28 +52,27 @@ static void	log_running_test(const char *test_name)
 	}
 }
 
-void    run_test(void test(), const char *test_name)
+void    run_test(void (test)(void), const char *test_name)
 {
-	t_test_mng *test_mng;
 	int pid;
 	int status;
 
-	test_mng = get_test_mng();
-	test_mng->current_test = test_name;
+	get_test_mng()->current_test = test_name;
 	log_running_test(test_name);
 	pid = fork();
 	status = -1;
 	if (0 == pid)
 	{
-		test_mng->before_test();
+		set_cur_test_ret(EXIT_SUCCESS);
+		get_test_mng()->before_test();
 		test();
-		test_mng->after_test();
-		exit(0);
+		get_test_mng()->after_test();
+		exit(get_test_mng()->current_test_ret);
 	}
 	else
 	{
 		wait(&status);
 	}
-	record_ret(WEXITSTATUS(status));
+	record_ret(status);
 }
 

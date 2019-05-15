@@ -6,7 +6,7 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 17:47:21 by mgalliou          #+#    #+#             */
-/*   Updated: 2019/05/15 14:09:55 by mgalliou         ###   ########.fr       */
+/*   Updated: 2019/05/15 14:46:49 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 #include <stdio.h>
 #include "libftest.h"
 
-int    assert_int_equal(int expected, int actually)
+void    assert_int_equal(int expected, int actually)
 {
-	if (expected == actually)
+	if (expected != actually)
 	{
-		exit(EXIT_SUCCESS);
+		printf("test: %s: failed\n", get_test_mng()->current_test);
+		printf("expected: \"%d\"\nactually: \"%d\".\n", expected, actually);
+		set_cur_test_ret(EXIT_FAILURE);
 	}
-	printf("test: %s: failed\n", get_test_mng()->current_test);
-	printf("expected: \"%d\"\nactually: \"%d\".\n", expected, actually);
-	exit(EXIT_FAILURE);
-	return (EXIT_FAILURE);
 }

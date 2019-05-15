@@ -6,7 +6,7 @@
 #    By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/28 13:13:07 by mgalliou          #+#    #+#              #
-#    Updated: 2019/05/15 11:42:44 by mgalliou         ###   ########.fr        #
+#    Updated: 2019/05/15 15:27:46 by mgalliou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ LIB_DIR			=	libft
 RM				= 	rm -rf
 CC				=	gcc
 CFLAGS			=	-Wall -Wextra -Werror
-CFLAGS_DEBUG	=	-g -fsanitize=address
+CFLAGS_DEBUG	=	-g #-fsanitize=address
 CPPFLAGS		=	$(foreach dir,$(INC_DIR),-I$(dir))
 LDFLAGS			=	-L$(LIB_DIR)
 LDLIBS			=	-lft
@@ -70,7 +70,8 @@ SRC_NAME	=	get_test_mng.c\
 				assert_int_equal.c\
 				assert_ptr_equal.c\
 				assert_true.c\
-				print_test_results.c
+				print_test_results.c\
+				set_cur_test_ret.c
 
 SRC			=	$(addprefix $(SRC_DIR)/,$(SRC_NAME))
 

@@ -6,7 +6,7 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/10 17:57:08 by mgalliou          #+#    #+#             */
-/*   Updated: 2019/05/10 17:58:14 by mgalliou         ###   ########.fr       */
+/*   Updated: 2019/05/15 14:29:02 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-int 	assert_ptr_equal(void *expected, void *actually)
+void 	assert_ptr_equal(void *expected, void *actually)
 {
-	if (!strcmp(actually, expected))
+	if (actually != expected)
 	{
-		exit(EXIT_SUCCESS);
+		dprintf(2, "test: %s: failed\n", get_test_mng()->current_test);
+		dprintf(2, "expected: \"%p\"\nactually: \"%p\".\n", expected, actually);
+		set_cur_test_ret(EXIT_FAILURE);
 	}
-	dprintf(2, "test: %s: failed\n", get_test_mng()->current_test);
-	dprintf(2, "expected: \"%p\"\nactually: \"%p\".\n", expected, actually);
-	exit(EXIT_FAILURE);
-	return (EXIT_FAILURE);
 }
