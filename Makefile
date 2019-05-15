@@ -6,7 +6,7 @@
 #    By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/28 13:13:07 by mgalliou          #+#    #+#              #
-#    Updated: 2019/05/13 12:42:47 by mgalliou         ###   ########.fr        #
+#    Updated: 2019/05/15 11:42:44 by mgalliou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,7 @@ OBJ_DIR			=	obj
 LIB_DIR			=	libft
 RM				= 	rm -rf
 CC				=	gcc
-CFLAGS			=	-Wall -Wextra -Werror -fPIC
+CFLAGS			=	-Wall -Wextra -Werror
 CFLAGS_DEBUG	=	-g -fsanitize=address
 CPPFLAGS		=	$(foreach dir,$(INC_DIR),-I$(dir))
 LDFLAGS			=	-L$(LIB_DIR)
@@ -46,6 +46,9 @@ LDLIBS			=	-lft
 AR				=	ar rc
 RL				=	ranlib
 RM				= 	rm -rf
+ifeq ($(shell uname),Linux)
+	CFLAGS += -fPIC
+endif
 
 # **************************************************************************** #
 #	INCLUDES                                                                   #
@@ -95,7 +98,7 @@ $(NAME): $(OBJ)
 
 $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 	@mkdir -p $(dir $@)
-	$(CC) $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) -c $< -o $@ $(LDLIBS)
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJ_DIR)
