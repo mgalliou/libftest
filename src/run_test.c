@@ -6,7 +6,7 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 17:22:35 by mgalliou          #+#    #+#             */
-/*   Updated: 2019/05/15 15:42:25 by mgalliou         ###   ########.fr       */
+/*   Updated: 2019/05/31 13:08:07 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ void	record_ret(int status)
 	else if (WIFSIGNALED(status))
 	{
 		++test_mng->failed;
-		ft_putstr("signal ");
+		ft_putstr(get_test_mng()->current_test);
+		ft_putstr(" failed with signal ");
 		ft_putnbr(WTERMSIG(status));
 		ft_putchar('\n');
 	}
@@ -45,7 +46,7 @@ void	record_ret(int status)
 
 static void	log_running_test(const char *test_name)
 {
-	if (1)
+	if (0)
 	{
 		ft_putstr("running test: ");
 		ft_putendl(test_name);

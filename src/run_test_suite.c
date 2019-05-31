@@ -6,7 +6,7 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 16:40:52 by mgalliou          #+#    #+#             */
-/*   Updated: 2019/05/15 11:52:43 by mgalliou         ###   ########.fr       */
+/*   Updated: 2019/05/31 13:08:57 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 static void	log_running_suite(void)
 {
-	if (1)
+	if (0)
 	{
 		ft_putendl("====================");
 		ft_putstr("running test suite: ");
