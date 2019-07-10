@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   run_test_suite.c                                   :+:      :+:    :+:   */
+/*   parse_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/07 16:40:52 by mgalliou          #+#    #+#             */
-/*   Updated: 2019/07/09 12:03:22 by mgalliou         ###   ########.fr       */
+/*   Created: 2019/07/09 11:58:57 by mgalliou          #+#    #+#             */
+/*   Updated: 2019/07/10 11:24:51 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
 #include "libftest.h"
-#include "libft.h"
+#include "string.h"
 
-static void	log_running_suite(void)
+void parse_args(int argc, char **argv)
 {
-	if (get_test_mng()->log)
+	t_test_mng *test_mng;
+
+	test_mng = get_test_mng();
+	if (argc > 1)
 	{
-		ft_putendl("====================");
-		ft_putstr("running test suite: ");
-		ft_putendl(get_test_mng()->current_suite);
-		ft_putendl("====================");
+		if (!strcmp("-l", argv[1]))
+		{
+			test_mng->log = 1;
+		}
 	}
-}
-
-void	run_test_suite(void	test_suite(), const char *suite_name)
-{
-	get_test_mng()->current_suite = suite_name;
-	log_running_suite();
-	test_suite();
 }

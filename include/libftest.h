@@ -6,7 +6,7 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 20:56:01 by mgalliou          #+#    #+#             */
-/*   Updated: 2019/05/30 15:02:44 by mgalliou         ###   ########.fr       */
+/*   Updated: 2019/07/10 11:13:14 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct	s_test_mng
 	int			current_test_ret;
 	void		(*before_test)();
 	void		(*after_test)();
+	int			log;
 }				t_test_mng;
 
 # define TEST_SUITE(suite_name)          void suite_name(void)
@@ -35,6 +36,7 @@ typedef struct	s_test_mng
 # define RUN_TEST(test_name)             run_test(test_name, #test_name)
 
 t_test_mng		*get_test_mng(void);
+void			parse_args(int argc, char **argv);
 void            run_test_suite(void	(test_suite)(void), const char *suite_name);
 void			run_test(void (test)(void), const char *test_name);
 void			set_cur_test_ret(int ret);

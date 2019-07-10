@@ -6,7 +6,7 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 17:22:35 by mgalliou          #+#    #+#             */
-/*   Updated: 2019/05/31 13:08:07 by mgalliou         ###   ########.fr       */
+/*   Updated: 2019/07/10 11:15:25 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	record_ret(int status)
 
 static void	log_running_test(const char *test_name)
 {
-	if (0)
+	if (get_test_mng()->log)
 	{
 		ft_putstr("running test: ");
 		ft_putendl(test_name);

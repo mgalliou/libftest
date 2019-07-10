@@ -6,7 +6,7 @@
 #    By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/28 13:13:07 by mgalliou          #+#    #+#              #
-#    Updated: 2019/05/15 15:27:46 by mgalliou         ###   ########.fr        #
+#    Updated: 2019/07/10 11:18:13 by mgalliou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,6 +62,7 @@ INC				=	$(addprefix $(INC_DIR)/,$(INC_NAME))
 # **************************************************************************** #
 
 SRC_NAME	=	get_test_mng.c\
+				parse_args.c\
 				run_test_suite.c\
 				run_test.c\
 				assert_not_null.c\

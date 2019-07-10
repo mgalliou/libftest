@@ -6,7 +6,7 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 16:45:29 by mgalliou          #+#    #+#             */
-/*   Updated: 2019/05/09 20:23:07 by mgalliou         ###   ########.fr       */
+/*   Updated: 2019/07/10 11:19:13 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ t_test_mng *get_test_mng(void)
 		test_mng.asserted = 0;
 		test_mng.failed = 0;
 		test_mng.passed = 0;
+		test_mng.log = 0;
 		init = 1;
 	}
 	return (&test_mng);
