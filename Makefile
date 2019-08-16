@@ -6,7 +6,7 @@
 #    By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/28 13:13:07 by mgalliou          #+#    #+#              #
-#    Updated: 2019/07/10 11:18:13 by mgalliou         ###   ########.fr        #
+#    Updated: 2019/08/16 18:15:57 by mgalliou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,8 +41,8 @@ CC				=	gcc
 CFLAGS			=	-Wall -Wextra -Werror
 CFLAGS_DEBUG	=	-g #-fsanitize=address
 CPPFLAGS		=	$(foreach dir,$(INC_DIR),-I$(dir))
-LDFLAGS			=	-L$(LIB_DIR)
-LDLIBS			=	-lft
+LDFLAGS			=	
+LDLIBS			=	
 AR				=	ar rc
 RL				=	ranlib
 RM				= 	rm -rf
@@ -54,7 +54,7 @@ endif
 #	INCLUDES                                                                   #
 # **************************************************************************** #
 
-INC_NAME		=	libft.h libftest.h
+INC_NAME		=	libftest.h
 INC				=	$(addprefix $(INC_DIR)/,$(INC_NAME))
 
 # **************************************************************************** #

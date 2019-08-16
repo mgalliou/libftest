@@ -6,16 +6,15 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 17:22:35 by mgalliou          #+#    #+#             */
-/*   Updated: 2019/07/10 11:15:25 by mgalliou         ###   ########.fr       */
+/*   Updated: 2019/08/16 18:23:34 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftest.h"
-#include "libft.h"
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <sys/wait.h>
+#include "libftest.h"
 
 void	record_ret(int status)
 {
@@ -36,10 +35,9 @@ void	record_ret(int status)
 	else if (WIFSIGNALED(status))
 	{
 		++test_mng->failed;
-		ft_putstr(get_test_mng()->current_test);
-		ft_putstr(" failed with signal ");
-		ft_putnbr(WTERMSIG(status));
-		ft_putchar('\n');
+		printf("%s:\n failed with signal %d\n",
+				get_test_mng()->current_test,
+				WTERMSIG(status));
 	}
 	++test_mng->asserted;
 }
@@ -48,8 +46,7 @@ static void	log_running_test(const char *test_name)
 {
 	if (get_test_mng()->log)
 	{
-		ft_putstr("running test: ");
-		ft_putendl(test_name);
+		printf("running test: %s\n", test_name);
 	}
 }
 
