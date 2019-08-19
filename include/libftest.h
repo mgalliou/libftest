@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.h                                             :+:      :+:    :+:   */
+/*   libftest.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 20:56:01 by mgalliou          #+#    #+#             */
-/*   Updated: 2019/07/10 11:13:14 by mgalliou         ###   ########.fr       */
+/*   Updated: 2019/08/19 11:08:44 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef TEST_H
-# define TEST_H
+#ifndef LIBFTEST_H
+# define LIBFTEST_H
 
 typedef struct	s_test_mng
 {
