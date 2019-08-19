@@ -6,11 +6,12 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/07 16:45:29 by mgalliou          #+#    #+#             */
-/*   Updated: 2019/07/10 11:19:13 by mgalliou         ###   ########.fr       */
+/*   Updated: 2019/08/19 12:15:12 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftest.h"
+#include "unistd.h"
 
 t_test_mng *get_test_mng(void)
 {
@@ -22,6 +23,8 @@ t_test_mng *get_test_mng(void)
 		test_mng.asserted = 0;
 		test_mng.failed = 0;
 		test_mng.passed = 0;
+		test_mng.before_test = NULL;
+		test_mng.after_test = NULL;
 		test_mng.log = 0;
 		init = 1;
 	}

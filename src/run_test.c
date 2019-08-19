@@ -6,15 +6,15 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 17:22:35 by mgalliou          #+#    #+#             */
-/*   Updated: 2019/08/16 18:23:34 by mgalliou         ###   ########.fr       */
+/*   Updated: 2019/08/19 12:12:24 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libftest.h"
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
 #include <sys/wait.h>
-#include "libftest.h"
 
 void	record_ret(int status)
 {
@@ -50,6 +50,23 @@ static void	log_running_test(const char *test_name)
 	}
 }
 
+
+static void run_suite_after_test()
+{
+	if (get_test_mng()->after_test)
+	{
+		get_test_mng()->after_test();
+	}
+}
+
+static void run_suite_before_test()
+{
+	if (get_test_mng()->before_test)
+	{
+		get_test_mng()->before_test();
+	}
+}
+
 void    run_test(void (test)(void), const char *test_name)
 {
 	int pid;
@@ -62,9 +79,9 @@ void    run_test(void (test)(void), const char *test_name)
 	if (0 == pid)
 	{
 		set_cur_test_ret(EXIT_SUCCESS);
-		get_test_mng()->before_test();
+		run_suite_before_test();
 		test();
-		get_test_mng()->after_test();
+		run_suite_after_test();
 		exit(get_test_mng()->current_test_ret);
 	}
 	else
