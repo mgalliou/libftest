@@ -6,13 +6,12 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/10 17:20:37 by mgalliou          #+#    #+#             */
-/*   Updated: 2019/05/15 14:48:01 by mgalliou         ###   ########.fr       */
+/*   Updated: 2019/10/25 13:24:23 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
 #include "libftest.h"
+#include <stdio.h>
 
 void	assert_true(int actually)
 {

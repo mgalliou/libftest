@@ -6,11 +6,10 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 17:47:21 by mgalliou          #+#    #+#             */
-/*   Updated: 2019/05/31 13:06:42 by mgalliou         ###   ########.fr       */
+/*   Updated: 2019/10/25 13:23:33 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <stdio.h>
 #include "libftest.h"
 

@@ -6,7 +6,7 @@
 #    By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/28 13:13:07 by mgalliou          #+#    #+#              #
-#    Updated: 2019/08/16 18:15:57 by mgalliou         ###   ########.fr        #
+#    Updated: 2019/10/25 13:35:04 by mgalliou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,6 +68,7 @@ SRC_NAME	=	get_test_mng.c\
 				assert_not_null.c\
 				assert_null.c\
 				assert_str_equal.c\
+				assert_str_n_eq.c\
 				assert_int_equal.c\
 				assert_ptr_equal.c\
 				assert_true.c\

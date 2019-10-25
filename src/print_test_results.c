@@ -6,12 +6,12 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 17:31:43 by mgalliou          #+#    #+#             */
-/*   Updated: 2019/05/10 18:33:08 by mgalliou         ###   ########.fr       */
+/*   Updated: 2019/10/25 13:26:02 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "libftest.h"
+#include <stdio.h>
 
 void    print_test_results(void)
 {

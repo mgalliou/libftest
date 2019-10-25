@@ -6,12 +6,12 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/09 11:58:57 by mgalliou          #+#    #+#             */
-/*   Updated: 2019/08/19 12:05:20 by mgalliou         ###   ########.fr       */
+/*   Updated: 2019/10/25 13:34:37 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftest.h"
-#include "string.h"
+#include <string.h>
 
 void parse_args(int argc, char **argv)
 {

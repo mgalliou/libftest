@@ -6,12 +6,14 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 20:56:01 by mgalliou          #+#    #+#             */
-/*   Updated: 2019/08/19 11:08:44 by mgalliou         ###   ########.fr       */
+/*   Updated: 2019/10/25 13:34:55 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFTEST_H
 # define LIBFTEST_H
+
+# include <stdlib.h>
 
 typedef struct	s_test_mng
 {
@@ -43,6 +45,7 @@ void			set_cur_test_ret(int ret);
 void			assert_null(void *ptr);
 void			assert_not_null(void *ptr);
 void            assert_str_equal(char *expected, char *actually);
+void            assert_str_n_eq(char *expected, char *actually, size_t n);
 void			assert_int_equal(int expected, int actually);
 void			assert_ptr_equal(void *expected, void *actually);
 void			assert_true(int actually);

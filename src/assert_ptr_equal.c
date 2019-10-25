@@ -6,13 +6,12 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/10 17:57:08 by mgalliou          #+#    #+#             */
-/*   Updated: 2019/05/15 14:29:02 by mgalliou         ###   ########.fr       */
+/*   Updated: 2019/10/25 13:23:43 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftest.h"
 #include <string.h>
-#include <stdlib.h>
 #include <stdio.h>
 
 void 	assert_ptr_equal(void *expected, void *actually)
