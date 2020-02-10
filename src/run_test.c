@@ -6,12 +6,11 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 17:22:35 by mgalliou          #+#    #+#             */
-/*   Updated: 2019/10/25 13:33:37 by mgalliou         ###   ########.fr       */
+/*   Updated: 2020/02/10 11:21:00 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftest.h"
-#include "libft.h"
 #include <unistd.h>
 #include <stdio.h>
 #include <sys/wait.h>
