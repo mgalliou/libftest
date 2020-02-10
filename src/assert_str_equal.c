@@ -6,7 +6,7 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 17:27:31 by mgalliou          #+#    #+#             */
-/*   Updated: 2020/02/10 17:56:55 by mgalliou         ###   ########.fr       */
+/*   Updated: 2020/02/10 18:56:53 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@ void 	assert_str_equal(char *expected, char *actually)
 {
 	char *null = "(null)";
 
+	printf("[%s %s]", expected, actually);
 	if ((!expected && actually) ||
 			(expected && !actually) ||
-			strcmp(expected, actually))
+			(expected && actually && strcmp(expected, actually)))
 	{
 		if (!expected)
 		{
