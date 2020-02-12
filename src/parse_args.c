@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftest.h"
+#include "../include/libftest.h"
 #include <string.h>
 
 void parse_args(int argc, char **argv)

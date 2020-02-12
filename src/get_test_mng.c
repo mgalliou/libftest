@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftest.h"
+#include "../include/libftest.h"
 #include "unistd.h"
 
 t_test_mng *get_test_mng(void)

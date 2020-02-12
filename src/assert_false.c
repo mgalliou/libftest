@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftest.h"
+#include "../include/libftest.h"
 #include <stdio.h>
 
 void	assert_false(int actually)

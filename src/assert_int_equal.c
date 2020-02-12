@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "libftest.h"
+#include "../include/libftest.h"
 
 void    assert_int_equal(int expected, int actually)
 {

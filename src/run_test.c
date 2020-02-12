@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftest.h"
+#include "../include/libftest.h"
 #include <unistd.h>
 #include <stdio.h>
 #include <sys/wait.h>

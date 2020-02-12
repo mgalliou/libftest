@@ -6,33 +6,12 @@
 #    By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/28 13:13:07 by mgalliou          #+#    #+#              #
-#    Updated: 2020/02/11 17:00:09 by mgalliou         ###   ########.fr        #
+#    Updated: 2020/02/12 18:22:48 by mgalliou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# **************************************************************************** #
-#    COLOR CODES                                                               #
-# **************************************************************************** #
-
-ESC			=	\033
-CBLACK		=	$(ESC)[30;1m
-CRED		=	$(ESC)[31;1m
-CGREEN		=	$(ESC)[32;1m
-CYELLOW		=	$(ESC)[33;1m
-CBLUE		=	$(ESC)[34;1m
-CMAGENTA	=	$(ESC)[35;1m
-CCYAN		=	$(ESC)[36;1m
-CWHITE		=	$(ESC)[37;1m
-CRESET		=	$(ESC)[m
-
-# **************************************************************************** #
-
-# **************************************************************************** #
-#	NAME / UTILITY / FLAGS / LIBS
-# **************************************************************************** #
-
 NAME			=	libftest.a
-INC_DIR			=	include libft/include
+INC_DIR			=	include
 SRC_DIR			=	src
 OBJ_DIR			=	obj
 LIB_DIR			=	libft
@@ -41,25 +20,18 @@ CC				=	gcc
 CFLAGS			=	-Wall -Wextra -Werror
 CFLAGS_DEBUG	=	-g #-fsanitize=address
 CPPFLAGS		=	$(foreach dir,$(INC_DIR),-I$(dir))
-LDFLAGS			=	
-LDLIBS			=	
-AR				=	ar rc
+LDFLAGS			=
+LDLIBS			=
+ARFLAGS 		=	rc
 RL				=	ranlib
 RM				= 	rm -rf
+
 ifeq ($(shell uname),Linux)
 	CFLAGS += -fPIC
 endif
 
-# **************************************************************************** #
-#	INCLUDES                                                                   #
-# **************************************************************************** #
-
 INC_NAME		=	libftest.h
 INC				=	$(addprefix $(INC_DIR)/,$(INC_NAME))
-
-# **************************************************************************** #
-#	SOURCES
-# **************************************************************************** #
 
 SRC_NAME	=	get_test_mng.c\
 				parse_args.c\
@@ -78,31 +50,21 @@ SRC_NAME	=	get_test_mng.c\
 
 SRC			=	$(addprefix $(SRC_DIR)/,$(SRC_NAME))
 
-# **************************************************************************** #
-#	OBJS
-# **************************************************************************** #
-
 OBJ_NAME	=	$(SRC_NAME:.c=.o)
 OBJ			=	$(addprefix $(OBJ_DIR)/,$(OBJ_NAME))
 
-# **************************************************************************** #
-#	HEADER
-# **************************************************************************** #
-
-# **************************************************************************** #
-
 all : $(NAME)
+
+$(NAME): $(OBJ)
+	$(AR) $(ARFLAGS) $@ $^
+	$(RL) $@
+
+$(OBJ_DIR)/%.o : $(SRC_DIR)/%.c $(INC)
+	@mkdir -p $(dir $@)
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
 debug: CFLAGS := $(CFLAGS) $(CFLAGS_DEBUG)
 debug: all
-
-$(NAME): $(OBJ)
-	$(AR) $@ $^ 
-	$(RL) $@
-
-$(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
-	@mkdir -p $(dir $@)
-	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJ_DIR)

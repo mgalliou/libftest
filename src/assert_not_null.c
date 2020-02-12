@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include "libftest.h"
+#include "../include/libftest.h"
 
 void	assert_not_null(void *ptr)
 {
