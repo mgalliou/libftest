@@ -6,7 +6,7 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 17:22:35 by mgalliou          #+#    #+#             */
-/*   Updated: 2020/02/12 18:25:35 by mgalliou         ###   ########.fr       */
+/*   Updated: 2020/02/13 06:23:35 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,17 +52,17 @@ static void	log_running_test(const char *test_name)
 
 static void run_suite_after_test()
 {
-	if (get_test_mng()->after_test)
+	if (get_test_mng()->current_suite.after_test)
 	{
-		get_test_mng()->after_test();
+		get_test_mng()->current_suite.after_test();
 	}
 }
 
 static void run_suite_before_test()
 {
-	if (get_test_mng()->before_test)
+	if (get_test_mng()->current_suite.before_test)
 	{
-		get_test_mng()->before_test();
+		get_test_mng()->current_suite.before_test();
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/06 20:56:01 by mgalliou          #+#    #+#             */
-/*   Updated: 2020/02/13 06:08:00 by mgalliou         ###   ########.fr       */
+/*   Updated: 2020/02/13 06:20:02 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 typedef struct		s_test_suite
 {
 	const char		*name;
+	void			(*before_test)();
+	void			(*after_test)();
 	int				failed_test;
 }					t_test_suite;
 
@@ -29,8 +31,6 @@ typedef struct		s_test_mng
 	t_test_suite	current_suite;
 	const char		*current_test;
 	int				current_test_ret;
-	void			(*before_test)();
-	void			(*after_test)();
 	int				log;
 }					t_test_mng;
 
