@@ -6,7 +6,7 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 17:22:35 by mgalliou          #+#    #+#             */
-/*   Updated: 2020/02/13 06:23:35 by mgalliou         ###   ########.fr       */
+/*   Updated: 2020/02/13 06:42:55 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,11 @@ static void run_suite_before_test()
 	}
 }
 
-void    run_test(void (test)(void), const char *test_name)
+void    run_test_with_fork(void (test)(void), const char *test_name)
 {
 	int pid;
 	int status;
 
-	get_test_mng()->current_test = test_name;
-	log_running_test(test_name);
 	pid = fork();
 	status = -1;
 	if (0 == pid)
@@ -88,5 +86,12 @@ void    run_test(void (test)(void), const char *test_name)
 		wait(&status);
 	}
 	record_ret(status);
+}
+
+void    run_test(void (test)(void), const char *test_name)
+{
+	get_test_mng()->current_test = test_name;
+	log_running_test(test_name);
+	run_test_with_fork(test, test_name);
 }
 
