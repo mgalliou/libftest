@@ -6,7 +6,7 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 17:27:31 by mgalliou          #+#    #+#             */
-/*   Updated: 2020/02/11 10:46:12 by mgalliou         ###   ########.fr       */
+/*   Updated: 2020/02/12 18:58:30 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void 	assert_str_equal(char *expected, char *actually)
 		{
 			actually = null;
 		}
+		print_test_failed_in_suite();
 		dprintf(2, "test: %s: failed\n", get_test_mng()->current_test);
 		dprintf(2, "expected: \"%s\"\nactually: \"%s\".\n", expected, actually);
 		set_cur_test_ret(EXIT_FAILURE);

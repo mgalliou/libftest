@@ -6,7 +6,7 @@
 #    By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/28 13:13:07 by mgalliou          #+#    #+#              #
-#    Updated: 2020/02/12 18:22:48 by mgalliou         ###   ########.fr        #
+#    Updated: 2020/02/12 18:57:49 by mgalliou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,7 @@ SRC_NAME	=	get_test_mng.c\
 				assert_true.c\
 				assert_false.c\
 				print_test_results.c\
+				print_test_failed_in_suite.c\
 				set_cur_test_ret.c
 
 SRC			=	$(addprefix $(SRC_DIR)/,$(SRC_NAME))
@@ -74,4 +75,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all debug clean fclean re

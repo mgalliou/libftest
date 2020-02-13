@@ -6,7 +6,7 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/13 12:40:14 by mgalliou          #+#    #+#             */
-/*   Updated: 2019/10/25 13:23:38 by mgalliou         ###   ########.fr       */
+/*   Updated: 2020/02/12 18:58:18 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ void assert_null(void *ptr)
 {
 	if (ptr)
 	{
-		printf("test: %s: failed\n", get_test_mng()->current_test);
-		printf("expected: %s\nactually: %s\n", "null", "not null");
+		print_test_failed_in_suite();
+		dprintf(2, "test: %s: failed\n", get_test_mng()->current_test);
+		dprintf(2, "expected: %s\nactually: %s\n", "null", "not null");
 		set_cur_test_ret(EXIT_FAILURE);
 	}
 }
