@@ -6,7 +6,7 @@
 /*   By: mgalliou <mgalliou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/09 17:22:35 by mgalliou          #+#    #+#             */
-/*   Updated: 2020/02/13 06:42:55 by mgalliou         ###   ########.fr       */
+/*   Updated: 2020/02/13 10:36:16 by mgalliou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void	record_ret(int status)
 		if (status)
 		{
 			++test_mng->failed;
+			++test_mng->current_suite.failed_test;
 		}
 		else
 		{
@@ -34,7 +35,7 @@ void	record_ret(int status)
 	else if (WIFSIGNALED(status))
 	{
 		++test_mng->failed;
-		printf("%s:\n failed with signal %d\n",
+		printf("test: %s:\n failed with signal: %d\n",
 				get_test_mng()->current_test,
 				WTERMSIG(status));
 	}
@@ -66,7 +67,7 @@ static void run_suite_before_test()
 	}
 }
 
-void    run_test_with_fork(void (test)(void), const char *test_name)
+static void    run_test_with_fork(void (test)(void))
 {
 	int pid;
 	int status;
@@ -92,6 +93,6 @@ void    run_test(void (test)(void), const char *test_name)
 {
 	get_test_mng()->current_test = test_name;
 	log_running_test(test_name);
-	run_test_with_fork(test, test_name);
+	run_test_with_fork(test);
 }
 
